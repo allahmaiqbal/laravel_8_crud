@@ -8,10 +8,12 @@ use App\Models\Student;
 
 class UserController extends Controller
 {
-    function index(){
-        return view('welcome');
-    }
 
+    function index() {
+        $students = Student::all();
+        return view('welcome', compact('students'));
+    }
+   
     function store(Request $request){
         $data = $request->validate([
             'name' => 'required|max:100',

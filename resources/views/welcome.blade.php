@@ -34,9 +34,12 @@
 
  
   <input type="submit" value="Submit">
-</form><br/><br/>
+</form>
 
-<table border="2px" cellpadding="10px" style="border-collapse:collapse;" >
+<hr>
+
+@if ($students)
+<table>
   <thead>
     <tr>
       <th>ID</th>
@@ -50,20 +53,30 @@
       <th>Action</th>
     </tr>
   </thead>
-  <tbody >
+
+  <tbody>
+    @foreach ($students as $index => $student)
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{ $index }}</td>
+      <td>{{ $student->
+      name }}</td>
+      <td>{{ $student->roll }}</td>
+      <td>{{ $student->phone }}</td>
+      <td>{{ $student->class }}</td>
+      <td>{{ $student->email }}</td>
+      <td>{{ $student->address }}</td>
+      <td>{{ $student->roll }}</td>
+      <td>{{ $student->balance }}</td>
+      <td>
+        <a href="#">Edit</a>
+        <a href="#">Delete</a>
+      </td>
     </tr>
+    @endforeach
+
   </tbody>
 </table>
+@endif
 
 </body>
 </html>
